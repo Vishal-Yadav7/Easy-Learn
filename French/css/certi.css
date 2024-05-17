@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.main-content {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 740px;
+  width: inherit;
+  border: 6px solid rgb(17, 0, 92);
+}
+
+#certificate {
+  display: none;
+  width: 1180px;
+  height: inherit;
+  background-color: white;
+}
+.left-side {
+  width: 25%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-side > img {
+  margin-top: 30px;
+  margin-left: 20px;
+  height: 350px;
+}
+.outer {
+  border: 20px solid white;
+}
+.light-br {
+  border: 3px solid rgb(17, 0, 92);
+  ;
+  padding: 4px;
+}
+.dark-br {
+  border: 15px solid rgb(17, 0, 92);
+  padding: 8px;
+}
+.right-content {
+  margin-top: 90px;
+  margin-left: 20px;
+  width: 62%;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 300;
+}
+
+#logo {
+  height: 35px;
+  margin-left: 46px;
+}
+#sign {
+  height: 40px;
+}
+
+.congrats,
+.course-name,
+.para,
+.authority,
+.certificate-id {
+  margin-left: 40px;
+}
+
+.congrats > h3 {
+  font-size: 23px;
+  font-weight: 300;
+  margin-top: 0px;
+}
+
+.congrats > h2 {
+  font-weight: 300;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+.course-name {
+  color: #000000;
+  margin-top: 45px;
+}
+.course-name > h1 {
+  margin: 0;
+}
+.completion {
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+.completion > h3 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.para > h2 {
+  margin-top: 30px;
+  color: #000000;
+  font-size: 17px;
+  font-weight: 400;
+}
+.authority {
+  margin-top: 15px;
+  font-size: 12.6px;
+
+  font-weight: 300;
+  display: flex;
+  color: #000000;
+  align-items: flex-end;
+}
+
+.vl {
+  border: 1px solid #000000;
+  height: 70px;
+}
+
+.part-1 > h3,
+.part-2 > h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+.certificate-id {
+  margin-top: 140px;
+  font-size: 13px;
+}
+
+#clength {
+  margin-left: 11px;
+}
+
+/* Form's Designing */
+
+#form {
+  padding: 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.16) 0px 30px 60px -30px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: white;
+}
+
+.first-name,
+.last-name,
+.date,
+.length,
+.course,
+.teacher {
+  margin-top: 30px;
+}
+
+label {
+  margin-top: 25px;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.563);
+}
+#Generate,
+#download {
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: "Montserrat", sans-serif;
+  width: 250px;
+  background-color: rgba(0, 0, 255, 0.496);
+  height: 50px;
+  transition: all 0.3s;
+}
+.btn {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffffc3;
+}
+#download {
+  display: none;
+}
+
+#Generate:hover,
+#download:hover {
+  background-color: rgba(0, 0, 255, 0.694);
+}
+/* Media Queries */
+
+@media (max-width: 500px) {
+  #form {
+    font-size: 14px;
+    padding: 22px;
+  }
+  input {
+    font-size: 12px;
+  }
+  #download {
+    font-size: 40px;
+    height: 165px;
+  }
+}
+/* Styling for select list */
+/* Styling for select list */
+.course .custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.course select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none; /* for older versions of Safari */
+  -moz-appearance: none; /* for older versions of Firefox */
+  background-color: #f7f7f7;
+}
+
+/* Styling for custom arrow */
+.course .arrow {
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #555;
+}
+
+/* Styling for option elements */
+.course option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Styling for hover effect */
+.course option:hover {
+  background-color: #ddd;
+}

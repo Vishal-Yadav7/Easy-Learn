@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>English to French MCQ Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+        }
+
+        button {
+        display: block;
+        margin: 20px auto;
+    }
+    .question p {
+        margin-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+    }
+    .question label {
+        display: block;
+        margin-bottom: 5px;
+        font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .pushable {
+        background: hsl(340deg 100% 32%);
+        border-radius: 12px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* Adjust as needed */
+    }
+    .front {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        background: hsl(345deg 100% 47%);
+        color: white;
+        transform: translateY(-6px);
+    }
+    .pushable:active .front {
+        transform: translateY(-2px);
+    }
+    .logo {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+    /* Additional styling for the image */
+    .logo img {
+        width: 130px;
+        margin-left: 20px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="unnamed.png" width="130px" style="margin-left: 20;">
+              </div>
+    <div class="container">
+        <h1>English to French
+            Test</h1>
+        <form id="mcqForm">
+            <div id="questions"></div>
+            <button type="button" onclick="submitForm()"
+                
+               class="pushable">
+                    <span class="front">
+                        Submit                    </span>
+                </button>
+        </form>
+    </div>
+
+    <script>
+        const questions = [
+    {
+        question: "What is 'house' in French?",
+        options: ["Maison", "Chien", "Chat", "Voiture"],
+        answer: 0 // Index of the correct answer in the options array (Maison)
+    },
+    {
+        question: "What is 'book' in French?",
+        options: ["Stylo", "Table", "Livre", "Fenêtre"],
+        answer: 2 // Index of the correct answer in the options array (Livre)
+    },
+    {
+        question: "What is 'dog' in French?",
+        options: ["Oiseau", "Maison", "Chat", "Chien"],
+        answer: 3 // Index of the correct answer in the options array (Chien)
+    },
+    {
+        question: "What is 'car' in French?",
+        options: ["Voiture", "Maison", "Vélo", "Bateau"],
+        answer: 0 // Index of the correct answer in the options array (Voiture)
+    },
+    {
+        question: "What is 'tree' in French?",
+        options: ["Arbre", "Fleur", "Herbe", "Nuage"],
+        answer: 0 // Index of the correct answer in the options array (Arbre)
+    },
+    {
+        question: "What is 'apple' in French?",
+        options: ["Banane", "Pomme", "Orange", "Fraise"],
+        answer: 1 // Index of the correct answer in the options array (Pomme)
+    },
+    {
+        question: "What is 'hello' in French?",
+        options: ["Bonjour", "Au revoir", "S'il vous plaît", "Merci"],
+        answer: 0 // Index of the correct answer in the options array (Bonjour)
+    },
+    {
+        question: "What is 'cat' in French?",
+        options: ["Chat", "Chien", "Souris", "Oiseau"],
+        answer: 0 // Index of the correct answer in the options array (Chat)
+    },
+    {
+        question: "What is 'goodbye' in French?",
+        options: ["Au revoir", "Bonjour", "Excusez-moi", "S'il vous plaît"],
+        answer: 0 // Index of the correct answer in the options array (Au revoir)
+    },
+    {
+        question: "What is 'milk' in French?",
+        options: ["Lait", "Eau", "Café", "Thé"],
+        answer: 0 // Index of the correct answer in the options array (Lait)
+    },
+];
+
+
+        const form = document.getElementById('mcqForm');
+        const questionContainer = document.getElementById('questions');
+
+        function createQuestionElement(questionObj, index) {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            questionDiv.innerHTML = `
+                <p>${questionObj.question}</p>
+                ${questionObj.options.map((option, i) => `
+                    <label>
+                        <input type="radio" name="q${index}" value="${i}">
+                        ${option}
+                    </label>
+                `).join('')}
+            `;
+            return questionDiv;
+        }
+
+        questions.forEach((question, index) => {
+            questionContainer.appendChild(createQuestionElement(question, index));
+        });
+
+        function submitForm() {
+            const formData = new FormData(form);
+            let score = 0;
+            formData.forEach((value, key) => {
+                const questionIndex = parseInt(key.substring(1)); // Extract the question index from the input name
+                if (questions[questionIndex].answer === parseInt(value)) {
+                    score++;
+                }
+            });
+            const passMark = 4;
+            const passStatus = score >= passMark ? "Passed" : "Failed";
+            // Redirect to a new page with the score information
+            window.location.href = `fs.html?score=${score}&total=${questions.length}&status=${passStatus}`;
+        }
+
+
+
+        
+    </script>
+</body>
+</html>

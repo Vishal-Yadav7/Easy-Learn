@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Japanese MCQ Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+        }
+
+        button {
+        display: block;
+        margin: 20px auto;
+    }
+    .question p {
+        margin-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+    }
+    .question label {
+        display: block;
+        margin-bottom: 5px;
+        font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .pushable {
+        background: hsl(340deg 100% 32%);
+        border-radius: 12px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* Adjust as needed */
+    }
+    .front {
+        display: block;
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        background: hsl(345deg 100% 47%);
+        color: white;
+        transform: translateY(-6px);
+    }
+    .pushable:active .front {
+        transform: translateY(-2px);
+    }
+    .logo {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+    /* Additional styling for the image */
+    .logo img {
+        width: 130px;
+        margin-left: 20px;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="unnamed.png" width="130px" style="margin-left: 20;">
+              </div>
+    <div class="container">
+        <h1>Japanese MCQ Test</h1>
+        <form id="mcqForm">
+            <div id="questions"></div>
+            <button type="button" onclick="submitForm()"
+                
+               class="pushable">
+                    <span class="front">
+                        Submit                    </span>
+                </button>
+        </form>
+    </div>
+
+    <script>
+       const questions = [
+    {
+        question: "What is 'house' in Japanese?",
+        options: ["いえ", "いぬ", "ねこ", "くるま"],
+        answer: 0 // Index of the correct answer in the options array (いえ)
+    },
+    {
+        question: "What is 'book' in Japanese?",
+        options: ["えんぴつ", "つくえ", "ほん", "まど"],
+        answer: 2 // Index of the correct answer in the options array (ほん)
+    },
+    {
+        question: "What is 'dog' in Japanese?",
+        options: ["とり", "いえ", "ねこ", "いぬ"],
+        answer: 3 // Index of the correct answer in the options array (いぬ)
+    },
+    {
+        question: "What is 'car' in Japanese?",
+        options: ["くるま", "いえ", "じてんしゃ", "ふね"],
+        answer: 0 // Index of the correct answer in the options array (くるま)
+    },
+    {
+        question: "What is 'tree' in Japanese?",
+        options: ["き", "はな", "くさ", "くも"],
+        answer: 0 // Index of the correct answer in the options array (き)
+    },
+    {
+        question: "What is 'apple' in Japanese?",
+        options: ["ばなな", "りんご", "オレンジ", "いちご"],
+        answer: 1 // Index of the correct answer in the options array (りんご)
+    },
+    {
+        question: "What is 'hello' in Japanese?",
+        options: ["こんにちは", "さようなら", "お願い", "ありがとう"],
+        answer: 0 // Index of the correct answer in the options array (こんにちは)
+    },
+    {
+        question: "What is 'cat' in Japanese?",
+        options: ["ねこ", "いぬ", "ねずみ", "とり"],
+        answer: 0 // Index of the correct answer in the options array (ねこ)
+    },
+    {
+        question: "What is 'goodbye' in Japanese?",
+        options: ["さようなら", "こんにちは", "すみません", "またね"],
+        answer: 0 // Index of the correct answer in the options array (さようなら)
+    },
+    {
+        question: "What is 'milk' in Japanese?",
+        options: ["ミルク", "みず", "コーヒー", "お茶"],
+        answer: 0 // Index of the correct answer in the options array (ミルク)
+    },
+];
+
+        const form = document.getElementById('mcqForm');
+        const questionContainer = document.getElementById('questions');
+
+        function createQuestionElement(questionObj, index) {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            questionDiv.innerHTML = `
+                <p>${questionObj.question}</p>
+                ${questionObj.options.map((option, i) => `
+                    <label>
+                        <input type="radio" name="q${index}" value="${i}">
+                        ${option}
+                    </label>
+                `).join('')}
+            `;
+            return questionDiv;
+        }
+
+        questions.forEach((question, index) => {
+            questionContainer.appendChild(createQuestionElement(question, index));
+        });
+
+        function submitForm() {
+            const formData = new FormData(form);
+            let score = 0;
+            formData.forEach((value, key) => {
+                const questionIndex = parseInt(key.substring(1)); // Extract the question index from the input name
+                if (questions[questionIndex].answer === parseInt(value)) {
+                    score++;
+                }
+            });
+            const passMark = 4;
+            const passStatus = score >= passMark ? "Passed" : "Failed";
+            // Redirect to a new page with the score information
+            window.location.href = `js.html?score=${score}&total=${questions.length}&status=${passStatus}`;
+        }
+
+
+
+        
+    </script>
+</body>
+</html>

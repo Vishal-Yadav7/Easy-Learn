@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Language Selection</title>
+    <style>
+        .flag {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .flag div {
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 5px;
+            padding: 2px;
+            border-radius: 18px;
+            border: 2px solid rgb(104, 104, 104);
+            width: 200px; /* Adjust width as needed */
+        }
+        .flag div:hover {
+            background-color: rgb(6, 122, 255);
+            border: 2px solid rgb(1, 52, 94);
+            color: white;
+        }
+        .flag div.selected {
+            background-color: rgb(59, 248, 122);
+            border: 2px solid rgb(1, 95, 24);
+
+            color: white;
+        }
+        img {
+            width: 60px;
+        }
+        #continueButton {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+        h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 00;
+  font-style: normal;
+  text-transform: capitalize;
+text-align: center;
+}
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="unnamed.png" style="width: 120px; height: auto;">
+    </div>
+    
+    <h1>Select the Language You Want to Learn
+
+    </h1>
+
+<div class="flag">
+    <div onclick="selectLanguage('German', 'german/german.html')">
+        <img src="german.png" alt="German Flag">
+        <h2>German</h2>
+    </div>
+    <div onclick="selectLanguage('Japanese', 'japanese/japanese.html')">
+        <img src="japan.png" alt="Japanese Flag">
+      <h2>  Japanese</h2>
+    </div>
+</div>
+<div class="flag">
+    <div onclick="selectLanguage('French', 'French/french.html')">
+        <img src="france.png" alt="French Flag">
+       <h2> French</h2>
+    </div>
+    <div onclick="selectLanguage('Spanish', 'Spanish/spanish.html')">
+        <img src="spain.png" alt="Spanish Flag">
+      <h2>  Spanish
+      </h2>    </div>
+</div>
+
+<button id="continueButton" onclick="continueClicked()">Continue</button>
+
+<script>
+    var selectedFlag = null;
+    var redirectUrl = null;
+
+    function selectLanguage(language, url) {
+        if (selectedFlag !== null) {
+            selectedFlag.classList.remove("selected");
+        }
+        var flagElement = event.target.closest('.flag div');
+        flagElement.classList.add("selected");
+        selectedFlag = flagElement;
+        redirectUrl = url;
+        showContinueButton();
+    }
+
+    function showContinueButton() {
+        var continueButton = document.getElementById("continueButton");
+        continueButton.style.display = "block";
+    }
+
+    function continueClicked() {
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        }
+    }
+</script>
+
+</body>
+</html>

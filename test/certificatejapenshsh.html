@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Learning Certificate Generator</title>
+    <link rel="stylesheet" href="css/certi.css">
+    <link rel="icon" type="image/x-icon" href="img/linkedin.png">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <img src="unnamed.png" width="130px" class="gg">
+
+
+    <div class="container">
+        <form action="#" id="form">
+            <div class="first-name">
+                <label for="fname"> First Name: <br>
+                    <input type="text" name="fname" id="fname">
+                </label>
+            </div>
+            <div class="last-name">
+                <label for="lname"> Last Name: <br>
+                    <input type="text" name="lname" id="lname">
+                </label>
+            </div>
+            <div class="date">
+                <label for="date"> Date of Completion: <br>
+                    <input type="calendar" name="date" id="date" placeholder="Example: Jan 25, 2000">
+                </label>
+            </div>
+            <div class="length">
+                <label for="length"> Length of Course: <br>
+                    <input type="text" name="length" id="length" placeholder="Example: 1 hour 30 minutes" value="30 minutes">
+                </label>
+            </div>
+            <div class="course">
+                <label for="course"> Course Name: <br>
+                    <div class="custom-select">
+                        <select name="course" id="course">
+                            <option value="" disabled selected>Select a Language</option>
+                           
+                            <option value="Japanese" selected>Japanese 🇯🇵</option>
+                            
+                        </select>
+                        <span class="arrow"></span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="btn">
+                <button id="Generate" type="submit">Generate</button>
+            </div>
+        </form>
+
+        <div id="certificate" class="certificate-container">
+            <!-- Certificate content will be dynamically generated here -->
+        </div>
+        <button id="download">Download PDF</button>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="certi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="certi.js"></script>
+    <script>
+        var today = new Date();
+        
+        // Format the current date as YYYY-MM-DD
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        var currentDate = year + '-' + month + '-' + day;
+
+        // Set the input field value to the current date
+        document.getElementById('date').value = currentDate;
+    </script>
+</body>
+
+</html>

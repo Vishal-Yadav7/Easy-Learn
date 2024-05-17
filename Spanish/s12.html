@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="japanese.css">
+</head>
+<body>
+    <h2 class="heading">True or false?</h2>
+    <div class="testcontainer">
+        <div class="vcontainer">
+            <div class="media-container">
+                <img src="s12.jpg" alt="Image" width="640" height="360"><br>
+                <audio controls autoplay>
+                    <source src="s12.mp3" type="audio/mpeg">   
+                </audio>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2 class="heading2">"¿Qué tal?" means "what's your name?"</h2>
+    </div>
+    <div class="boxes">
+        <div class="box" onclick="selectBox(1)">True</div>
+        <div class="box" onclick="selectBox(2)">False</div>
+    </div>
+    <button id="continueButton" style="display: none;" onclick="continueClicked()">Continue</button>
+    
+    <script src="japanese2.js"></script>
+    <script>
+        function continueClicked() {
+            // Redirect to another page when continue button is clicked
+            window.location.href = "s13.html";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>  
+</body>
+</html>

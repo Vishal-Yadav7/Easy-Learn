@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matching Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .item {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    background-color: lightblue;
+    cursor: pointer;
+  }
+  .matched {
+    background-color: lightgreen;
+  }
+</style>
+</head>
+<body>
+  <h1>Match the items:</h1>
+  <div id="items">
+    <div class="item" id="fruit">Fruit</div>
+    <div class="item" id="vegetable">Vegetable</div>
+    <div class="item" id="pet">Pet</div>
+  </div>
+  <br>
+  <div id="matches">
+    <div class="item" id="apple">Apple</div>
+    <div class="item" id="radish">Radish</div>
+    <div class="item" id="cat">Cat</div>
+  </div>
+
+<script>
+  let matches = document.querySelectorAll('.item');
+  let selectedItems = [];
+
+  matches.forEach(match => {
+    match.addEventListener('click', () => {
+      if (selectedItems.length < 2) {
+        selectedItems.push(match);
+        match.classList.add('matched');
+        if (selectedItems.length === 2) {
+          setTimeout(() => {
+            if (selectedItems[0].id !== selectedItems[1].id) {
+              selectedItems.forEach(item => item.classList.remove('matched'));
+            }
+            selectedItems = [];
+          }, 1000);
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

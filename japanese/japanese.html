@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="japanese.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 class="heading">Look Something New!</h2>
+    <div class="container">
+        <div class="vcontainer">
+            <video width="640" height="360" data-setup="{}" class="video-js" controls autoplay>
+                <source src="konnichiwa.mp4" type="video/mp4"> 
+            </video>
+        </div>  
+        <div class="bottom-div">
+            <h2>Konnichiwa / こんにちは</h3>
+            <h3>Hello</h4>
+        </div>
+    </div>
+    <a id="continueButton" href="javascript:void(0)" onclick="changeFileName()">Continue</a>
+
+<script>
+function changeFileName() {
+    // Change the href attribute of the button to "test1.html"
+    document.getElementById("continueButton").href = "test1.html";
+}
+</script>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+</body>
+</html>

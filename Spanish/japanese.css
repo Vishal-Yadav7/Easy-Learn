@@ -1,0 +1,141 @@
+/* styles.css */
+body {
+    background-color: rgb(255, 255, 255);
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+    background-attachment: fixed; /* Fix the background image while scrolling */
+    
+}
+.heading{
+    font-weight: bolder;
+    text-align: center;
+}
+.heading2{
+    font-weight: lighter;
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack divs vertically */
+    height: 80vh; /* Make the container full height of the viewport */
+}
+.testcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack divs vertically */
+    height: 60vh; /* Make the container full height of the viewport */
+}
+
+.vcontainer {
+    margin-bottom: 2px; /* Adjust margin as needed */
+    border-radius: 15px; /* Rounded edges for video container */
+    overflow: hidden; /* Hide overflow to make rounded edges visible */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+video {
+    border-radius: 15px; /* Rounded edges for video element */
+    width: 640px; /* Set width of video */
+    height: 360px; /* Set height of video */
+}
+.bottom-div {
+    width: 600px; /* Set width to match video */
+    background-color: #ecf8ff; /* Background color of bottom div */
+    border-radius: 15px; /* Rounded edges for bottom div */
+    margin-top: 10px;
+    padding: 10px; /* Add padding for better appearance */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.bottom-div h2 {
+    font-weight: bold; /* Make <h3> text bold */
+    text-align: center;
+}
+
+.bottom-div h3 {
+    font-weight: lighter; /* Make <h4> text lighter */
+    text-align: center;
+}
+/* CSS Styles */
+#continueButton {
+    background-color: #370f8d; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 10px; /* Rounded edges */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    position: fixed; /* Positioning */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+}
+
+
+#continueButton:hover {
+    background-color: #110538; /* Darker color on hover */
+}
+.box {
+    width: 200px;
+    height: 100px;
+    background-color: lightgray;
+    border: 2px solid transparent;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.box:hover {
+    border-color: black;
+}
+
+.selected {
+    border-color: rgb(114, 255, 114);
+    border: 1px solid black;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Added margin to reduce distance */
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    background-color: lightgray;
+    border: 2px solid black;
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    border-color: black;
+}
+
+.selected {
+    border-color: rgb(114, 255, 114);
+    border: 1px solid black;
+
+}
+.h3t3 {
+    text-align: center;
+}
+.media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="japanese.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="logo">
+        <img src="unnamed.png" width="130px" style="margin-left: 20;">
+              </div>
+    <h2 class="heading">Complete the sentence.    </h2>
+    <div class="testcontainer">
+        <div class="vcontainer">
+            <video width="640" height="360" data-setup="{}" class="video-js" controls autoplay>
+                <source src="fill the blank.mp4" type="video/mp4"> 
+            </video>
+        </div>
+        </div>
+        
+        
+        
+        <h3 class="h3t3">Hallo, ich ................ Maria.        </h3>
+        <div class="boxes">
+            <div class="box" onclick="selectBox(1)">heiße</div>
+            <div class="box" onclick="selectBox(2)">habe </div>
+
+        </div>
+    </div>
+    <button id="continueButton" style="display: none;" onclick="continueClicked()">Continue</button>
+    
+
+    <script src="japanese.js"></script>
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+        <script>
+            function continueClicked() {
+                // Redirect to another page when continue button is clicked
+                window.location.href = "t4.html";
+            }
+        </script>
+        <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>     
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French MCQ Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .pushable {
+            background: hsl(340deg 100% 32%);
+            border-radius: 12px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            outline-offset: 4px;
+        }
+
+        .front {
+            display: block;
+            padding: 12px 42px;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            background: hsl(345deg 100% 47%);
+            color: white;
+            transform: translateY(-6px);
+            transition: color 0.3s; /* Add transition for smooth color change */
+        }
+
+        /* Change text color to white on hover */
+        .pushable:hover .front {
+            color: white;
+        }
+
+        .pushable:active .front {
+            transform: translateY(-2px);
+        }
+        .pushable .front a {
+        color: white; /* Set text color to white */
+        text-decoration: none; /* Remove underline from the link */
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>French MCQ Test</h1>
+        <div id="score"></div>
+    </div>
+
+    <script>
+        // Get score information from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = parseInt(urlParams.get('score'));
+        const totalQuestions = parseInt(urlParams.get('total'));
+        const passStatus = urlParams.get('status');
+
+        // Display score information
+        const scoreContainer = document.getElementById('score');
+        if (!isNaN(score) && !isNaN(totalQuestions) && passStatus !== null) {
+            const passMessage = passStatus === 'Passed' ? 'Congratulations, you passed!' : 'Sorry, you did not pass.';
+            scoreContainer.innerHTML = `
+                <p>Your score: ${score} out of ${totalQuestions}</p>
+                <p>${passMessage}</p>
+            `;
+            // Show Generate Certificate button if the user passed
+            if (passStatus === 'Passed') {
+                scoreContainer.innerHTML += `
+                    <button class="pushable">
+                        <span class="front">
+                            <a href="certifresch.html">
+                                Generate Certificate
+                            </a>
+                        </span>
+                    </button>
+                `;
+            }
+        } else {
+            scoreContainer.innerHTML = '<p>Score information is not available.</p>';
+        }
+    </script>
+</body>
+</html>

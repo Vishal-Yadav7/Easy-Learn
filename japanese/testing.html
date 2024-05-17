@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+
+<h1>Quiz</h1>
+
+<div id="quiz-container">
+    <div id="question"></div>
+    <input type="text" id="answer" placeholder="Your answer">
+    <button onclick="checkAnswer()">Submit</button>
+</div>
+
+<div id="gif-container" style="display: none;">
+    <img id="gif" src="" alt="GIF">
+</div>
+
+<script>
+    // Define quiz data
+    var quizData = [
+        { question: "What is the capital of France?", answer: "Paris" },
+        { question: "What is the largest mammal?", answer: "Blue whale" },
+        { question: "What is 2 + 2?", answer: "4" }
+    ];
+
+    // Define GIF URLs for correct answers
+    var gifUrls = [
+        "https://media.giphy.com/media/l46Cu9r5YneF6BZGo/giphy.gif",
+        "https://media.giphy.com/media/3o6Zt6w89A1ZWYzqTC/giphy.gif",
+        "https://media.giphy.com/media/6ob/giphy.gif" // Replace this URL with "6ob.gif" URL
+    ];
+
+    var currentQuestionIndex = 0;
+    var gifIndex = 0;
+
+    function showNextQuestion() {
+        var questionElement = document.getElementById("question");
+        var answerInput = document.getElementById("answer");
+        var gifContainer = document.getElementById("gif-container");
+        var gif = document.getElementById("gif");
+
+        // Reset input field and GIF container
+        answerInput.value = "";
+        gifContainer.style.display = "none";
+
+        if (currentQuestionIndex < quizData.length) {
+            var currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+        } else {
+            questionElement.textContent = "Quiz finished!";
+            return;
+        }
+    }
+
+    function checkAnswer() {
+        var answerInput = document.getElementById("answer").value.trim().toLowerCase();
+        var currentQuestion = quizData[currentQuestionIndex];
+        if (answerInput === currentQuestion.answer.toLowerCase()) {
+            // Correct answer
+            var gif = document.getElementById("gif");
+            gif.src = gifUrls[gifIndex];
+            gifIndex = (gifIndex + 1) % gifUrls.length;
+            document.getElementById("gif-container").style.display = "block";
+        } else {
+            // Incorrect answer
+            alert("Incorrect. The correct answer is: " + currentQuestion.answer);
+        }
+
+        // Move to the next question
+        currentQuestionIndex++;
+        showNextQuestion();
+    }
+
+    // Show the first question when the page loads
+    showNextQuestion();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>faq</title>
+  </head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <body class="bg-purple-300">
+    <div>
+      <img
+        src="images/background-pattern-mobile.svg"
+        alt=""
+        class="min-w-full md:hidden"
+      />
+      <img
+        src="images/background-pattern-desktop.svg"
+        alt=""
+        class="min-w-full md:block hidden"
+      />
+    </div>
+    <div class="flex justify-center px-4">
+      <div id="faq-container " class="p-5 -translate-y-20 bg-white rounded text-wrap">
+        <div class="flex items-center gap-8">
+          <img src="images/icon-star.svg" alt="" />
+          <h1 class="font-extrabold text-3xl text-slate-800">FAQs</h1>
+        </div>
+        <div id="faqs" class="hover:cursor-pointer">
+          <div class="faq-item mt-8">
+            <div class="question flex items-start gap-2 justify-between">
+              <p class="font-bold hover:text-purple-600">
+                What languages are available for learning on this platform?
+              </p>
+              <img src="images/icon-plus.svg" alt="" />
+              <img src="images/icon-minus.svg" alt="" class="hidden" />
+            </div>
+            <div class="answer my-6 font-medium text-slate-700 hidden">
+              Our platform offers a wide range of languages for learning, including popular ones such as English, Spanish, French, German, and many more. We strive to cater to the diverse language learning needs of our users.
+            </div>
+          </div>
+          <div class="h-0.5 opacity-5 bg-black mt-3"></div>
+          <div class="faq-item mt-5">
+            <div class="question flex items-start gap-2 justify-between">
+              <p class="font-bold hover:text-purple-600">Is this platform suitable for beginners?</p>
+              <img src="images/icon-plus.svg" alt="" />
+              <img src="images/icon-minus.svg" alt="" class="hidden" />
+            </div>
+            <div class="answer my-6 font-medium text-slate-700 hidden ">
+              Yes, absolutely! Our platform is designed to accommodate learners of all levels, including complete beginners. We provide structured lessons, interactive activities, and resources tailored to help beginners start their language learning journey effectively.
+            </div>
+          </div>
+          <div class="h-0.5 opacity-5 bg-black mt-3"></div>
+        
+          <div class="faq-item mt-5">
+            <div class="question flex items-start gap-2 justify-between">
+              <p class="font-bold hover:text-purple-600">
+                Do you offer certificates upon completion of courses?
+              </p>
+              <img src="images/icon-plus.svg" alt="" />
+              <img src="images/icon-minus.svg" alt="" class="hidden" />
+            </div>
+            <div class="answer my-6 font-medium text-slate-700 hidden justify-between" >
+              Yes, we provide certificates of completion for our courses. These certificates demonstrate your dedication and proficiency in the language you've studied. They can be a valuable addition to your resume or LinkedIn profile, showcasing your language skills and commitment to continuous learning.
+            </div>
+          </div>
+          <div class="h-0.5 opacity-5 bg-black mt-3"></div>
+        
+          <div class="faq-item mt-5">
+            <div class="question flex items-start gap-2">
+              <p class="font-bold hover:text-purple-600">
+                What support options are available if I need assistance?
+              </p>
+              <img src="images/icon-plus.svg" alt="" />
+              <img src="images/icon-minus.svg" alt="" class="hidden" />
+            </div>
+            <div class="answer my-6 font-medium text-slate-700 hidden">
+              We provide comprehensive support to our users through various channels, including email support and frequently asked questions (FAQs). Our dedicated team is here to assist you every step of the way on your language learning journey.
+            </div>
+          </div>
+        </div>
+        
+
+    <script>
+      const container = document.querySelector("#faqs");
+
+      container.addEventListener("click", (e) => {
+        if (e.target.tagName === "P" || e.target.tagName === "IMG") {
+          console.log();
+          const imgElement = e.target.parentNode.querySelectorAll("IMG"); // Get child IMG element
+          console.log(imgElement);
+          imgElement.forEach((element) => {
+            element.classList.toggle("hidden");
+          });
+          e.target.parentNode.nextElementSibling.classList.toggle("hidden")
+        }
+      });
+    </script>
+  </body>
+</html>
